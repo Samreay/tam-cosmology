@@ -9,7 +9,7 @@ import rehypeKatex from "rehype-katex";
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'Docs with Tailwind',
+			title: 'Tam\'s Cosmology Conundrums',
 			social: {
 				github: 'https://github.com/withastro/starlight',
 			},
@@ -19,16 +19,12 @@ export default defineConfig({
 			],
 			sidebar: [
 				{
-					label: 'Guides',
+					label: 'Cosmological Conundrums',
 					items: [
 						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
+						{ label: 'Redshifted photon energy', slug: 'redshifted_photons' },
 					],
-				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
+				}
 			],
 			customCss: ['./src/tailwind.css'],
 		}),
