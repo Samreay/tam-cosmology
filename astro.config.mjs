@@ -4,6 +4,7 @@ import starlight from '@astrojs/starlight';
 import tailwind from '@astrojs/tailwind';
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import astroD2 from 'astro-d2'
 
 // https://astro.build/config
 export default defineConfig({
@@ -24,11 +25,23 @@ export default defineConfig({
 						// Each item here is one entry in the navigation menu.
 						{ label: 'Redshifted photon energy', slug: 'redshifted_photons' },
 					],
-				}
+				},
+				{
+					label: 'Explainers',
+					items: [
+						{ slug: 'redshift_space_distortions'}
+					]
+				},
 			],
-			customCss: ['./src/tailwind.css'],
+			customCss: [
+				'./src/tailwind.css',
+				'@fontsource/oxanium/400.css'
+			],
 		}),
 		tailwind({ applyBaseStyles: false }),
+		astroD2({
+			theme: { dark: '200', default: '101' }
+		}),
 	],
 	markdown: {
 		syntaxHighlight: "prism",

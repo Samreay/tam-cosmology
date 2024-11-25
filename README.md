@@ -5,7 +5,7 @@
 You will need to have `npm` available:
 
 ```bash
-brew install nvm
+brew install nvm d2
 nvm install
 ```
 

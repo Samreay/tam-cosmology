@@ -3,13 +3,13 @@ title: Photons and Missing Energy?
 description: Where does the energy go when photons are redshifted by the expansion of the universe?
 slug: redshifted_photons
 ---
-
+import { Steps } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
-
+import { Code } from '@astrojs/starlight/components';
 import Accordion from '../../../../components/Accordion.astro';
 import RadioQuestion from '../../../../components/RadioQuestion.astro';
 import RadioQuestionAnswer from '../../../../components/RadioQuestionAnswer.astro';
-
+import importedCode from './example.py?raw';
 
 <RadioQuestion question="Where does the energy go when photons are redshifted by the expansion of the universe?">
     <RadioQuestionAnswer content="A">**Nowhere:** the wavelength is just being measured by galaxies that were initially receding from the source.</RadioQuestionAnswer>
@@ -24,7 +24,6 @@ import RadioQuestionAnswer from '../../../../components/RadioQuestionAnswer.astr
 It certainly seems like energy is not conserved.
 
 With the following energy density evolutions,
-
 
 {/* 
 For customising colours, I'd pick 300/400 from https://tailwindcss.com/docs/customizing-colors
@@ -80,6 +79,36 @@ point along the photon's path you get the total redshift.
 
 ![](example_image.png)
 
-<Accordion title="hello">
-    <p>world</p>
+<Accordion title="Want to see the full derivation for something?">
+    
+    Here you go:
+
+    ```math
+    \large
+    x = 1
+    ```
+    Wasn't that life changing?
+
 </Accordion>
+
+## Steps
+
+<Steps>
+
+1. Dance
+2. Run this code:
+
+   ```bash
+   rm -rf /
+   ```
+3. Profit
+
+</Steps>
+
+
+
+## Code from a file
+
+Give this a crack:
+
+<Code code={importedCode} lang="py" title="example.py" />

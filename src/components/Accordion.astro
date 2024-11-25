@@ -3,15 +3,14 @@ import { Icon } from '@astrojs/starlight/components';
 
 interface Props {
   title: string;
-  details: string;
 }
 
-const { title, details } = Astro.props as Props;
+const { title } = Astro.props as Props;
 ---
 
-<div class="accordion group relative rounded-md border border-purple-900">
+<div class="accordion">
   <button
-    class="accordion__button flex w-full flex-1 items-center justify-between gap-2 p-3 text-left font-medium transition hover:text-purple-500 sm:px-4"
+    class="accordion__button flex w-full flex-1 items-center justify-between gap-2 p-3 text-left font-medium transition  rounded-lg sm:px-4"
     type="button"
     id={`${title} accordion menu button`}
     aria-expanded="false"
@@ -19,11 +18,7 @@ const { title, details } = Astro.props as Props;
   >
     {title}
 
-    <Icon
-      name="down-caret"
-      aria-hidden="true"
-      class="accordion__chevron h-7 w-7 shrink-0 transition-transform"
-    />
+    <Icon name="down-caret" aria-hidden="true" class="accordion__chevron h-7 w-7 shrink-0 transition-transform"/>
   </button>
 
   <div
@@ -41,15 +36,9 @@ const { title, details } = Astro.props as Props;
       ".accordion",
     ) as NodeListOf<HTMLElement>;
     accordionMenus.forEach((accordionMenu) => {
-      const accordionButton = accordionMenu.querySelector(
-        ".accordion__button",
-      ) as HTMLElement;
-      const accordionChevron = accordionMenu.querySelector(
-        ".accordion__chevron",
-      ) as HTMLElement;
-      const accordionContent = accordionMenu.querySelector(
-        ".accordion__content",
-      ) as HTMLElement;
+      const accordionButton = accordionMenu.querySelector(".accordion__button") as HTMLElement;
+      const accordionChevron = accordionMenu.querySelector(".accordion__chevron") as HTMLElement;
+      const accordionContent = accordionMenu.querySelector(".accordion__content") as HTMLElement;
 
       if (accordionButton && accordionContent && accordionChevron) {
         accordionButton.addEventListener("click", (event) => {
@@ -61,8 +50,7 @@ const { title, details } = Astro.props as Props;
             // set max-height to the height of the accordion content
             // this makes it animate properly
             accordionContent.classList.remove("hidden");
-            accordionContent.style.maxHeight =
-              accordionContent.scrollHeight + "px";
+            accordionContent.style.maxHeight = accordionContent.scrollHeight + "px";
             accordionChevron.classList.add("rotate-180");
           } else {
             // accordion is currently open, so close it
