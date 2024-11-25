@@ -1,0 +1,42 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+import type { Props } from '../props';
+import LinkCard from './LinkCard.astro';
+const { dir, pagination } = Astro.props;
+const { prev, next } = pagination;
+const isRtl = dir === 'rtl';
+
+---
+
+<div class="pagination-links" dir={dir}>
+	{
+		prev && (<LinkCard extra="Previous: ", href={prev.href} label={prev.label} />)
+	}
+	{
+		next && (<LinkCard extra="Next: ", href={next.href} label={next.label} />)
+	}
+</div>
+
+<style>
+	.pagination-links {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+		gap: 1rem;
+	}
+
+	.vertical-card {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 0.5rem;
+		overflow-wrap: anywhere;
+	}
+	[rel='next'] {
+		justify-content: end;
+		text-align: end;
+		flex-direction: row-reverse;
+	}
+	svg {
+		flex-shrink: 0;
+	}
+</style>

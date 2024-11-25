@@ -30,3 +30,7 @@ h1, h2 {
 .sl-markdown-content p img {
     @apply rounded-lg;
 }
+
+.vertical-card .card-content {
+    min-height: 150px;
+}

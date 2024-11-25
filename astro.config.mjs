@@ -29,7 +29,8 @@ export default defineConfig({
 				{
 					label: 'Explainers',
 					items: [
-						{ slug: 'redshift_space_distortions'}
+						{ slug: 'redshift_space_distortions' },
+						{ slug: 'alcock_paczynski_effect' }
 					]
 				},
 			],
@@ -37,6 +38,9 @@ export default defineConfig({
 				'./src/tailwind.css',
 				'@fontsource/oxanium/400.css'
 			],
+			components: {
+				Pagination: './src/components/Pagination.astro',
+			}
 		}),
 		tailwind({ applyBaseStyles: false }),
 		astroD2({
