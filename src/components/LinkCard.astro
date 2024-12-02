@@ -1,5 +1,5 @@
 ---
-const { label, href, extra } = Astro.props;
+const { href, extra } = Astro.props;
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("docs");
@@ -7,8 +7,6 @@ const hrefLookup = Object.fromEntries(
   allPosts.map((post) => ["/" + post.slug, post])
 );
 const post = hrefLookup[href];
-const cover = post.data.cover;
-console.log(cover);
 ---
 
 <div class="vertical-card">
