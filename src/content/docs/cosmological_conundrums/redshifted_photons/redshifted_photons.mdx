@@ -12,7 +12,6 @@ import { Code } from '@astrojs/starlight/components';
 import { YouTube } from 'astro-embed';
 
 {/* These are ones we've made for this repo */}
-import Accordion from '../../../../components/Accordion.astro';
 import DeepDive from '../../../../components/DeepDive.astro';
 import RadioQuestion from '../../../../components/RadioQuestion.astro';
 import RadioQuestionAnswer from '../../../../components/RadioQuestionAnswer.astro';
@@ -90,8 +89,9 @@ point along the photon's path you get the total redshift.
 
 ![](example_image.png)
 
-<Accordion title="Want to see the full derivation for something?">
-    
+<details>
+    <summary>Want to see the full derivation for something?</summary>
+
     Here you go:
 
     ```math
@@ -104,8 +104,7 @@ point along the photon's path you get the total redshift.
 
     <DeepDive href="redshift_space_distortions" extra="Deep Dive: "/>
 
-</Accordion>
-
+</details>
 
 
 ## Steps
