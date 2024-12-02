@@ -1,0 +1,7 @@
+---
+const { src } = Astro.props;
+---
+
+<video preload="auto" playsinline plays-inline controls autoplay loop muted>
+    <source src={src} type="video/mp4" />
+</video>

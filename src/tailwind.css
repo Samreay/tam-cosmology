@@ -34,3 +34,12 @@ h1, h2 {
 .vertical-card .card-content {
     min-height: 150px;
 }
+
+/* Allows youtube video to take full horizontal width */
+lite-youtube {
+    max-width: none !important;
+}
+
+.social-icons::after {
+  display: none;
+}

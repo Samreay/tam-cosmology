@@ -18,6 +18,10 @@ export default defineConfig({
 				{tag: "script", attrs: {src:"https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.js", defer: true, crossorigin: "anonymous"}},
 				{tag: "link", attrs: {rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.css", crossorigin: "anonymous"}}
 			],
+			expressiveCode: {
+				themes: ["starlight-dark"],
+				useStarlightDarkModeSwitch: false,
+			},
 			sidebar: [
 				{
 					label: 'Cosmological Conundrums',
@@ -40,7 +44,10 @@ export default defineConfig({
 			],
 			components: {
 				Pagination: './src/components/Pagination.astro',
-			}
+				ThemeProvider: './src/components/ThemeProvider.astro',
+				ThemeSelect: './src/components/ThemeSelect.astro',
+			},
+			
 		}),
 		tailwind({ applyBaseStyles: false }),
 		astroD2({

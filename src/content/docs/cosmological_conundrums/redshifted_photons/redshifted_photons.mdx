@@ -5,13 +5,21 @@ slug: redshifted_photons
 cover: ./example_image.png
 ---
 
+{/* These are external components */}
 import { Steps } from '@astrojs/starlight/components';
 import { Image } from 'astro:assets';
 import { Code } from '@astrojs/starlight/components';
+import { YouTube } from 'astro-embed';
+
+{/* These are ones we've made for this repo */}
 import Accordion from '../../../../components/Accordion.astro';
 import RadioQuestion from '../../../../components/RadioQuestion.astro';
 import RadioQuestionAnswer from '../../../../components/RadioQuestionAnswer.astro';
+import Video from '../../../../components/Video.astro';
+
+{/* And these are local resrouces the above will use */}
 import importedCode from './example.py?raw';
+import video from './video.mp4';
 
 <RadioQuestion question="Where does the energy go when photons are redshifted by the expansion of the universe?">
     <RadioQuestionAnswer content="A">**Nowhere:** the wavelength is just being measured by galaxies that were initially receding from the source.</RadioQuestionAnswer>
@@ -114,3 +122,23 @@ point along the photon's path you get the total redshift.
 Give this a crack:
 
 <Code code={importedCode} lang="py" title="example.py" />
+
+It will make these two components. First, an image:
+
+![](example.png)
+
+And then, a video:
+
+<Video src={video} />
+
+Notice that most of the defaults and colour is set in the `defaults.py` file in the src directory.
+mp4 videos dont support transparency, so the background colour is picked to match the site background colour.
+The images though are saved out via png so they will be properly transparent.
+
+The alternative would be to save it out as a gif file... but don't do that. gifs are bad.
+
+## Embeds
+
+astro-embed comes with vimeo, twitter, bluesky, and youtube embeds. Here's a youtube one:
+
+<YouTube id="jpXuYc-wzk4" posterQuality="max" title="The BAO peak" />
