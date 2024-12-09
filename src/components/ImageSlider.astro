@@ -13,7 +13,7 @@ const images = import.meta.glob("/src/content/docs/**/*");
 const filteredImages = Object.keys(images).filter(key => {
     return key.startsWith(imagePrefix) && (key.endsWith('.png') || key.endsWith('.jpg') || key.endsWith('.jpeg') || key.endsWith('.webp'));
 }).sort();
-const labels = await import(labelFile);
+const labels = await import(/* @vite-ignore */labelFile ); 
 
 const imgs = filteredImages.map((image) => {
     return {"image":images[image](), "label":labels.default[image]};
