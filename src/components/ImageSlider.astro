@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+
+interface Props {
+    imagePrefix: string;
+    labelFile: string;
+    id: string;
+}
+const { imagePrefix, labelFile, id } = Astro.props;
+const images = import.meta.glob("/src/content/docs/**/*");
+
+// Filter the images above so that the keys begin with the imagePrefix
+const filteredImages = Object.keys(images).filter(key => {
+    return key.startsWith(imagePrefix) && (key.endsWith('.png') || key.endsWith('.jpg') || key.endsWith('.jpeg') || key.endsWith('.webp'));
+}).sort();
+const labels = await import(labelFile);
+
+const imgs = filteredImages.map((image) => {
+    return {"image":images[image](), "label":labels.default[image]};
+});
+---
+
+<div>
+    <input id=`${id}-range` type="range" min="0" max=`${imgs.length-1}`, step="1" value="0" class="w-full">
+    {imgs.map((imgDict, index) => (
+        <div class=`${id}-content hidden` style="margin-top: 1rem">
+            <h6 class="w-full text-center">{imgDict.label}</h6>
+            <Image src={imgDict.image} alt={imgDict.label} />
+        </div>
+    ))}
+</div>
+
+<script define:vars={{ id }}>
+    const range = document.getElementById(`${id}-range`);
+    const imagePacks = document.querySelectorAll(`.${id}-content`);
+    function updateImagePack(e) {
+        imagePacks.forEach((img, index) => {
+            if (index == range.value) {
+                img.classList.remove('hidden');
+            } else {
+                img.classList.add('hidden');
+            }
+        });
+    }
+    range.addEventListener('input', updateImagePack);
+    updateImagePack();
+</script>

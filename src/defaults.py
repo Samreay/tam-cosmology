@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from cycler import cycler
 
+colours = ["#38bdf8", "#4ade80", "#fbbf24", "#d946ef", "#e11d48", "#2dd4bf"]
 background_color = "#141417"
 # A bunch of imports to keep the plotting code minimal
 plt.style.use("dark_background")
@@ -27,6 +28,6 @@ plt.rcParams.update(
         "savefig.facecolor": (0.0, 0.0, 0.0, 0.0),
     }
 )
-plt.rcParams["axes.prop_cycle"] = cycler(
-    color=["#38bdf8", "#4ade80", "#fbbf24", "#d946ef", "#e11d48", "#2dd4bf"]
-) + cycler(linestyle=["-", "--", ":", "-.", "-", "--"])
+plt.rcParams["axes.prop_cycle"] = cycler(color=colours) + cycler(
+    linestyle=["-", "--", ":", "-.", "-", "--"]
+)
