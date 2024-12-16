@@ -2,6 +2,7 @@
 title: Tam's Cosmology Conundrums
 description: Time to have your mind blown.
 template: splash
+slug: index
 hero:
   title: |
     Tam's
@@ -13,30 +14,18 @@ hero:
     >
       Cosmology Conundrums
     </span>
-  tagline: Fill out a tagline here or somethin
+  tagline: A deep dive into cosmological paradoxes and enigmas.
   actions:
     - text: Cosmological Conundrums
       link: /redshifted_photons
       icon: right-arrow
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/accretion_tilt.png
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import RecentPosts from '../../components/RecentPosts.astro';
 
-## Next steps
+## Recent Posts
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
-</CardGrid>
+<RecentPosts num="3" />

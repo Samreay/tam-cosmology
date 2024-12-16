@@ -32,7 +32,9 @@ h1, h2 {
 }
 
 .vertical-card .card-content {
-    min-height: 150px;
+    min-height: 10rem;
+    max-height: 10rem;
+    overflow: hidden;
 }
 
 /* Allows youtube video to take full horizontal width */

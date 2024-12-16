@@ -4,12 +4,12 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("docs");
 const hrefLookup = Object.fromEntries(
-  allPosts.map((post) => ["/" + post.slug, post])
+  allPosts.map((post) => ["/" + post.id, post])
 );
 const post = hrefLookup[href];
 ---
 
-<div class="vertical-card">
+<div class="vertical-card mt-4">
   <a href={href} class="no-underline text-accent-300">
     <div class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-800">
       <Image
@@ -17,7 +17,7 @@ const post = hrefLookup[href];
         alt={post.data.title}
         width="300"
         height="200"
-        class="w-full"
+        class="w-full aspect-video"
       />
       <div class="px-6 py-4 card-content">
         <div class="font-bold text-xl mb-2">{extra}{post.data.title}</div>

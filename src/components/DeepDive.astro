@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("docs");
 const hrefLookup = Object.fromEntries(
-  allPosts.map((post) => [post.slug, post])
+  allPosts.map((post) => [post.id, post])
 );
 const post = hrefLookup[href];
 ---
@@ -12,7 +12,7 @@ const post = hrefLookup[href];
 <div class="horizontal-card shadow">
   <a href={href} class="no-underline text-accent-300">
     <div class="w-full rounded-xl border-gray-800 duration-100 hover:border-gray-600 border-2 overflow-hidden shadow-lg bg-gray-800 flex">
-      <div class="h-36 h-auto w-36 flex-none bg-cover text-center overflow-hidden" style="background-image: url('/img/card-left.jpg')" title="Woman holding a mug">
+      <div class="h-36 h-auto w-36 flex-none bg-cover text-center overflow-hidden">
         <Image src={post.data.cover} alt={post.data.title} />
       </div>
       <div class="mt-0 card-content pl-4 p-2 lg:p-4 flex flex-col leading-normal" style="margin-top:0;">
